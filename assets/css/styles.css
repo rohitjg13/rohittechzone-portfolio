@@ -877,6 +877,19 @@ img {
     resize: none;
 }
 
+.contact-submit-button{
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    font-weight: var(--font-medium);
+    outline: none;
+    border: none;
+    padding: 1rem 1rem;
+}
+
+.contact-submit-button:hover{
+    cursor: pointer;
+}
+
 /*==================== FOOTER ====================*/
 .footer{
     padding-top: 2rem;

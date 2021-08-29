@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">  
+        <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <!--==================== UNICONS ====================-->
         
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -851,31 +852,31 @@
                         </div>
                     </div>
 
-                    <form action="" class="contact__form grid">
+                    <form action="https://submit-form.com/4OUtw8s6" class="contact__form grid">
                         <div class="contact__inputs grid">
                             <div class="contact__content">
-                                <label for="" class="contact__label">Name</label>
-                                <input type="text" class="contact__input">
+                                <label for="name" class="contact__label">Name</label>
+                                <input name="name" type="text" id="name" class="contact__input">
                             </div>
                             <div class="contact__content">
-                                <label for="" class="contact__label">Email</label>
-                                <input type="email" class="contact__input">
+                                <label for="email" class="contact__label">Email</label>
+                                <input name="email" type="email" id="email" class="contact__input">
                             </div>
                         </div>
                         <div class="contact__content">
-                            <label for="" class="contact__label">Subject</label>
-                            <input type="text" class="contact__input">
+                            <label for="sub" class="contact__label">Subject</label>
+                            <input input="subject" type="text" id="sub" class="contact__input">
                         </div>
                         <div class="contact__content">
-                            <label for="" class="contact__label">Message</label>
-                            <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
+                            <label for="message" class="contact__label">Message</label>
+                            <textarea name="message" id="message" cols="0" rows="7" class="contact__input"></textarea>
                         </div>
 
                         <div>
-                            <a href="#" class="button button--flex">
+                            <button class="button button--flex contact-submit-button g-recaptcha" data-sitekey="6Ldd7zAcAAAAAMad_lieIFV-xgdmOPTPmHo2JnLO" data-callback="onSubmit" type="submit">
                                 Send Message
                                 <i class="uil uil-message button__icon"></i>
-                            </a>
+                            </button>
                         </div>
                     </form>
                 </div>
