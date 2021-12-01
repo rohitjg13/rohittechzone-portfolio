@@ -937,15 +937,13 @@
         <!--==================== MAIN JS ====================-->
         <script src="assets/js/main.js"></script>
 
-        <script>
-            if (document.readyState === 'complete'){
+        <script defer>
                 const queryString = window.location.search;
                 const urlParams = new URLSearchParams(queryString);
                 const form_submission = urlParams.get('form_submission')
                 if(form_submission == "success"){
                     alert("Message Sent!")
                 }
-            }
         </script>
     </body>
 </html>
