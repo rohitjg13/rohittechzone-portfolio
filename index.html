@@ -25,7 +25,7 @@
         <script>
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
-            const page_type = urlParams.get('form_submission')
+            const form_submission = urlParams.get('form_submission')
             if(form_submission == "success"){
                 alert("Message Sent!")
             }
