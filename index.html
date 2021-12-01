@@ -938,11 +938,13 @@
         <script src="assets/js/main.js"></script>
 
         <script>
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const form_submission = urlParams.get('form_submission')
-            if(form_submission == "success"){
-                alert("Message Sent!")
+            if (document.readyState === 'complete'){
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const form_submission = urlParams.get('form_submission')
+                if(form_submission == "success"){
+                    alert("Message Sent!")
+                }
             }
         </script>
     </body>
