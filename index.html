@@ -22,6 +22,14 @@
         <title>Rohit | Full Stack Developer</title>
     </head>
     <body>
+        <script>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const page_type = urlParams.get('form_submission')
+            if(form_submission == "success"){
+                alert("Message Sent!")
+            }
+        </script>
         <!--==================== HEADER ====================-->
         <header class="header" id="header">
             <nav class="nav container">
@@ -854,7 +862,7 @@
                         </div>
                     </div>
 
-                    <form action="https://request.rohittechzone.com/postrequest" method="post" data-botpoison-public-key="pk_1a867df3-1bca-4df1-a113-50729f5b7059" class="contact__form grid">
+                    <form action="https://request.rohittechzone.com/submitform" method="post" data-botpoison-public-key="pk_1a867df3-1bca-4df1-a113-50729f5b7059" class="contact__form grid">
                         <div class="contact__inputs grid">
                             <div class="contact__content">
                                 <label for="name" class="contact__label">Name</label>
