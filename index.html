@@ -21,7 +21,7 @@
         <meta name="thumbnail" content="https://user-images.githubusercontent.com/63205012/140249815-6c87422d-9622-439c-9b1e-060df77fba1c.png" />
         <title>Rohit | Full Stack Developer</title>
     </head>
-    <body>
+    <body onload="checkSubmit()">
         <!--==================== HEADER ====================-->
         <header class="header" id="header">
             <nav class="nav container">
@@ -937,13 +937,15 @@
         <!--==================== MAIN JS ====================-->
         <script src="assets/js/main.js"></script>
 
-        <script defer>
+        <script>
+            function checkSubmit(){
                 const queryString = window.location.search;
                 const urlParams = new URLSearchParams(queryString);
                 const form_submission = urlParams.get('form_submission')
                 if(form_submission == "success"){
                     alert("Message Sent!")
                 }
+            }
         </script>
     </body>
 </html>
