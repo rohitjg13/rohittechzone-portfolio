@@ -7,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        <script src="https://unpkg.com/@botpoison/browser"></script>
         <!--==================== UNICONS ====================-->
         
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -21,7 +20,7 @@
         <meta name="thumbnail" content="https://user-images.githubusercontent.com/63205012/140249815-6c87422d-9622-439c-9b1e-060df77fba1c.png" />
         <title>Rohit | Full Stack Developer</title>
     </head>
-    <body onload="checkSubmit()">
+    <body>
         <!--==================== HEADER ====================-->
         <header class="header" id="header">
             <nav class="nav container">
@@ -854,7 +853,7 @@
                         </div>
                     </div>
 
-                    <form action="https://request.rohittechzone.com/submitform" method="post" data-botpoison-public-key="pk_1a867df3-1bca-4df1-a113-50729f5b7059" class="contact__form grid">
+                    <form action="https://submit-form.com/4OUtw8s6" id="form__main" class="contact__form grid">
                         <div class="contact__inputs grid">
                             <div class="contact__content">
                                 <label for="name" class="contact__label">Name</label>
@@ -866,8 +865,8 @@
                             </div>
                         </div>
                         <div class="contact__content">
-                            <label for="subject" class="contact__label">Subject</label>
-                            <input name="subject" type="text" id="subject" class="contact__input">
+                            <label for="sub" class="contact__label">Subject</label>
+                            <input input="subject" type="text" id="sub" class="contact__input">
                         </div>
                         <div class="contact__content">
                             <label for="message" class="contact__label">Message</label>
@@ -876,7 +875,7 @@
 
                         <div>
                             <!-- data-sitekey="6Ldd7zAcAAAAAMad_lieIFV-xgdmOPTPmHo2JnLO"  -->
-                            <button class="button button--flex contact-submit-button" type="submit">
+                            <button class="button button--flex contact-submit-button" id="submit_button_form" type="submit">
                                 Send Message
                                 <i class="uil uil-message button__icon"></i>
                             </button>
@@ -925,7 +924,19 @@
                 </p>
             </div>
         </footer>
-        
+        <script>
+            var formElement = document.getElementById("form__main");
+            var buttonElement = document.getElementById("submit_button_form");
+            formElement.addEventListener("botpoison-challenge-start", function () {
+              buttonElement.setAttribute("disabled", "disabled");
+            });
+            formElement.addEventListener("botpoison-challenge-success", function () {
+              buttonElement.removeAttribute("disabled");
+            });
+            formElement.addEventListener("botpoison-challenge-error", function () {
+              buttonElement.removeAttribute("disabled");
+            });
+        </script>
         <!--==================== SCROLL TOP ====================-->
         <a href="#" class="scrollup" id="scroll-up">
             <i class="uil uil-arrow-up scrollup__icon"></i>
@@ -936,16 +947,5 @@
 
         <!--==================== MAIN JS ====================-->
         <script src="assets/js/main.js"></script>
-
-        <script>
-            function checkSubmit(){
-                const queryString = window.location.search;
-                const urlParams = new URLSearchParams(queryString);
-                const form_submission = urlParams.get('form_submission')
-                if(form_submission == "success"){
-                    alert("Message Sent!")
-                }
-            }
-        </script>
     </body>
 </html>
