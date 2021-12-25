@@ -1,5 +1,16 @@
 window.addEventListener("load", function () {
 	document.getElementById("wrapper").style.display = "block";
+    $.get("https://ipinfo.io", function(response) {
+        let data = {event: "CHRISTMAS SITE VISITOR", ip: response.ip};
+
+        fetch("https://request.rohittechzone.com/visitor", {
+        method: "POST", 
+        body: JSON.stringify(data)
+        }).then(res => {
+            return
+        });
+    }, "json")
+    
 });
 document.addEventListener("click", (e) => {
 	//create span for snowflake
