@@ -171,7 +171,13 @@
             }
         }
         function copyInside(){
-            navigator.clipboard.writeText(`Wishing you a happy new year! 🎇🎆\n${window.location.origin.replace("http:", "https:")}${window.location.pathname}?text=${params.get('text')}`);
+            let name_text = params.get('text');
+            if(name_text == null){
+                navigator.clipboard.writeText(`Wishing you a happy new year! 🎇🎆\n${window.location.origin.replace("http:", "https:")}${window.location.pathname}`);
+            }
+            else{
+                navigator.clipboard.writeText(`Wishing you a happy new year! 🎇🎆\n${window.location.origin.replace("http:", "https:")}${window.location.pathname}?text=${params.get('text')}`);
+            }
              alert("Copied to clipboard!");
 
             let data = {event_type: "Copy From Site",name_entered: params.get('text'), time_in: getCookie("time_in"), isMobile: isMobileUser()};
@@ -198,15 +204,32 @@
                 console.log(res);
             });
             if (navigator.share) {
-                navigator.share({
-                title: 'New Year Wishes',
-                text: `Wishing you a happy new year! 🎇🎆`,
-                url: `${window.location.origin.replace("http:", "https:")}${window.location.pathname}?text=${params.get('text')}`
-                })
-                .then(() => console.log('Successful share'))
-                .catch((error) => console.log('Error sharing', error));
+                if(params.get('text') == null){
+                    navigator.share({
+                    title: 'New Year Wishes',
+                    text: `Wishing you a happy new year! 🎇🎆`,
+                    url: `${window.location.origin.replace("http:", "https:")}${window.location.pathname}`
+                    })
+                    .then(() => console.log('Successful share'))
+                    .catch((error) => console.log('Error sharing', error));
+                }
+                else{
+                    navigator.share({
+                    title: 'New Year Wishes',
+                    text: `Wishing you a happy new year! 🎇🎆`,
+                    url: `${window.location.origin.replace("http:", "https:")}${window.location.pathname}?text=${params.get('text')}`
+                    })
+                    .then(() => console.log('Successful share'))
+                    .catch((error) => console.log('Error sharing', error));
+                }
             } else {
-                alert("Share is not available in your browser!");
+                if(params.get('text') == null){
+                    navigator.clipboard.writeText(`Wishing you a happy new year! 🎇🎆\n${window.location.origin.replace("http:", "https:")}${window.location.pathname}`);
+                }
+                else{
+                    navigator.clipboard.writeText(`Wishing you a happy new year! 🎇🎆\n${window.location.origin.replace("http:", "https:")}${window.location.pathname}?text=${params.get('text')}`);
+                }
+                alert("Share is not available in your browser! Instead copied it to your clipboard!");
             }
         }
     </script>    

@@ -371,7 +371,8 @@ function functionConfirm(msg) {
          .then(() => console.log('Successful share'))
          .catch((error) => console.log('Error sharing', error));
        } else {
-         alert("Share is not available in your browser!");
+			navigator.clipboard.writeText(`${jQuery('#c-form__input').val()} Wishing you a happy new year! 🎇🎆\n${jQuery('#link_url').val().replace(" ", "%20")}`);
+        	alert("Share is not available in your browser! Instead copied it to your clipboard!");
        }
 	   document.location.href = jQuery('#link_url').val()+"&skip=true";
     });
