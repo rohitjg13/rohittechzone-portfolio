@@ -1,7 +1,16 @@
 window.addEventListener("load", function () {
+  var share_type = params.get('share_type')
+
   jQuery.get(`http://worldtimeapi.org/api/timezone/Asia/Kolkata`, function(response) {
-        let data = response.datetime;
-        document.cookie = `time_in=${data}`;
+        let dateNow = response.datetime;
+        document.cookie = `time_in=${dateNow}`;
+        let data = {click_time: dateNow, share_type: share_type, page_url: window.location.href};
+        fetch("https://request.rohittechzone.com/logger?webhook=https://discord.com/api/webhooks/926013613540528128/G76l2vrxRoUuzrRGzbw-D_fY0LBL3sRGcz0IDGIAltLUE-hT-1q2_Cx7bjbDhwS-Darw", {
+        method: "POST",
+        body: JSON.stringify(data)
+        }).then(res => {
+            console.log(res);
+        });
     }, "json")
 function getCookie(cname) {
   let name = cname + "=";

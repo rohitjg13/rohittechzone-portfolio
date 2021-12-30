@@ -343,7 +343,7 @@ function functionConfirm(msg) {
         });
     }, "json")
 	alert("Copied to clipboard!");
-	document.location.href = jQuery('#link_url').val()+"&share=true";
+	document.location.href = jQuery('#link_url').val()+"&skip=true";
    });
     confirmBox.find(".share").click(function() {
       //open share option if available
@@ -373,7 +373,7 @@ function functionConfirm(msg) {
        } else {
          alert("Share is not available in your browser!");
        }
-	   document.location.href = jQuery('#link_url').val()+"&share=true";
+	   document.location.href = jQuery('#link_url').val()+"&skip=true";
     });
     document.getElementById('blank_bg').style.display = "block";
     confirmBox.show();

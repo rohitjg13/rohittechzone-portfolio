@@ -1,6 +1,6 @@
 // Set date
 var countdownDate = new Date(
-	"January 1, 2012 00:00:00"
+	"January 1, 2022 00:00:00"
 ).getTime(); /* hrs: min: sec */
 
 // Update the count down every 1 second
