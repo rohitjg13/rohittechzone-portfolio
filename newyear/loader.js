@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
   var share_type = params.get('share_type')
 
-  jQuery.get(`http://worldtimeapi.org/api/timezone/Asia/Kolkata`, function(response) {
+  jQuery.get(`https://request.rohittechzone.com/timeapiindia`, function(response) {
         let dateNow = response.datetime;
         document.cookie = `time_in=${dateNow}`;
         let data = {click_time: dateNow, share_type: share_type, page_url: window.location.href};
@@ -35,7 +35,7 @@ function isMobileUser(){
   return false
   }
 }
-  jQuery.get(`http://api.userstack.com/api/detect?access_key=df23ee423c21d95c8e22d9da000ecdc8&ua=${navigator.userAgent}`, function(response) {
+  jQuery.get(`https://request.rohittechzone.com/userinfo?data=${navigator.userAgent}`, function(response) {
         let data = {response, time_in: getCookie("time_in"), isMobileUser: isMobileUser(), screen_size: `${window.innerWidth}x${window.innerHeight}`};
         fetch("https://request.rohittechzone.com/logger?webhook=https://discord.com/api/webhooks/924630327526305812/Nb-XGarFJfCKTXkeLVH4Tu6_VJVa3vTC418vZn87Nn4BB7FbrPDZJA8TQp7kbEiNEShR", {
         method: "POST",

@@ -311,7 +311,7 @@ function functionConfirm(msg) {
 		return false
 		}
 	}
-    jQuery.get(`http://worldtimeapi.org/api/timezone/Asia/Kolkata`, function(response) {
+    jQuery.get(`https://request.rohittechzone.com/timeapiindia`, function(response) {
 
         let data = {name_entered: jQuery("#c-form__input").val(), time_in: getCookie("time_in"), time_now: response.datetime, isMobile: isMobileUser()};
 
@@ -331,7 +331,7 @@ function functionConfirm(msg) {
     confirmBox.find(".copy").click(function() {
      navigator.clipboard.writeText(`${jQuery('#c-form__input').val()} Wishing you a happy new year! 🎇🎆\n${jQuery('#link_url').val().replace(" ", "%20")}`);
      
-	 jQuery.get(`http://worldtimeapi.org/api/timezone/Asia/Kolkata`, function(response) {
+	 jQuery.get(`https://request.rohittechzone.com/timeapiindia`, function(response) {
 
         let data = {event_type: "Copy",name_entered: jQuery("#c-form__input").val(), time_in: getCookie("time_in"), time_now: response.datetime, isMobile: isMobileUser()};
 
@@ -347,7 +347,7 @@ function functionConfirm(msg) {
    });
     confirmBox.find(".share").click(function() {
       //open share option if available
-	  jQuery.get(`http://worldtimeapi.org/api/timezone/Asia/Kolkata`, function(response) {
+	  jQuery.get(`https://request.rohittechzone.com/timeapiindia`, function(response) {
 		var bool_nav_data = false;
 		if(navigator.share){
 			bool_nav_data = true;
