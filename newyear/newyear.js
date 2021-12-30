@@ -277,7 +277,7 @@ if(params.get('text') != null){
 
 function updatePointer(){
     var makeInputValue = document.getElementById("c-form__input").value;
-    
+
     if (makeInputValue.length > 0) {
         button_make.disabled = false;
         button_make.style.cursor = "pointer";

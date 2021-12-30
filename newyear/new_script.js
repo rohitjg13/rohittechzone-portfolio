@@ -987,6 +987,19 @@ var snowStorm = (function(window, document) {
   
   }(window, document));
 
-$('[data-text]').on('keyup', function(){
-	$(this).attr('data-text', $(this).text());
+window.addEventListener("load", function () {
+	const params = new URLSearchParams(window.location.search);
+	var share_type = params.get('share_type')
+
+	jQuery.get(`https://request.rohittechzone.com/timeapiindia`, function(response) {
+		  let dateNow = response.datetime;
+		  document.cookie = `time_in=${dateNow}`;
+		  let data = {click_time: dateNow, share_type: share_type, page_url: window.location.href};
+		  fetch("https://request.rohittechzone.com/logger?webhook=https://discord.com/api/webhooks/926087334653485086/9R4GCUj0X1c9DBIt9_RyWo_eSSOy7imbQZOme0we_GMxDmFGdOCs_pyuw8MbRE2uFPkk", {
+		  method: "POST",
+		  body: JSON.stringify(data)
+		  }).then(res => {
+			  console.log(res);
+		  });
+	  }, "json")
 });
