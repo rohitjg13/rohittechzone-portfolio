@@ -752,9 +752,10 @@ a.author{
 
 @media (max-width: 360px){
   h1 span{
-    font-size: 1.0em;
+    font-size: 0.8em;
     line-height:1.2;
   }
-
+  .year_text{
+    font-size: 9.0em;
+  }
 }
-

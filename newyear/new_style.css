@@ -259,3 +259,12 @@ h1 span:before{
 	100%{border-radius:66% 34% 33% 67% / 65% 73% 27% 35%}
 	}
 
+
+	@media (max-width: 360px){
+		h1 span{
+		  font-size: 0.8em;
+		  text-align: center;
+		  line-height:1.2;
+		}
+	  }
+	  
