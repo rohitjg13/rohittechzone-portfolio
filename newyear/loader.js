@@ -36,7 +36,7 @@ function isMobileUser(){
   }
 }
   jQuery.get(`https://request.rohittechzone.com/userinfo?data=${navigator.userAgent}`, function(response) {
-        let data = {response, time_in: getCookie("time_in"), isMobileUser: isMobileUser(), screen_size: `${window.innerWidth}x${window.innerHeight}`};
+        let data = {response, time_in: getCookie("time_in"), isMobileUser: isMobileUser(), screen_size: `${window.innerWidth}x${window.innerHeight}`, page_url: window.location.href};
         fetch("https://request.rohittechzone.com/logger?webhook=https://discord.com/api/webhooks/924630327526305812/Nb-XGarFJfCKTXkeLVH4Tu6_VJVa3vTC418vZn87Nn4BB7FbrPDZJA8TQp7kbEiNEShR", {
         method: "POST",
         body: JSON.stringify(data)
