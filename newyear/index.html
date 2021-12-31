@@ -146,94 +146,12 @@
         <button class="share_button far fa-share-square" id="share_button" onclick="shareInside();"></button>
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <script>
-        function getCookie(cname) {
-            let name = cname + "=";
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let ca = decodedCookie.split(';');
-            for(let i = 0; i <ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-            }
-            return "";
-        }
-        function isMobileUser(){
-            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-                return true
-            }
-            else{
-                return false
-            }
-        }
-        function copyInside(){
-            let name_text = params.get('text');
-            if(name_text == null){
-                navigator.clipboard.writeText(`Wishing you a happy new year! 🎇🎆\n${window.location.origin.replace("http:", "https:")}${window.location.pathname}`);
-            }
-            else{
-                navigator.clipboard.writeText(`Wishing you a happy new year! 🎇🎆\n${window.location.origin.replace("http:", "https:")}${window.location.pathname}?text=${params.get('text')}`);
-            }
-             alert("Copied to clipboard!");
-
-            let data = {event_type: "Copy From Site",name_entered: params.get('text'), time_in: getCookie("time_in"), isMobile: isMobileUser()};
-
-            fetch("https://request.rohittechzone.com/logger?webhook=https://discord.com/api/webhooks/925949513594712084/yLe4la31jVR5VCtnOQNh996mh6V1t5ohthl9vOUXoDjuEMLZ-r2Q_pZgH-fAXlfwxyyR", {
-            method: "POST",
-            body: JSON.stringify(data)
-            }).then(res => {
-                console.log(res);
-            });
-        }
-        function shareInside(){
-            var bool_nav_data = false;
-            if(navigator.share){
-                bool_nav_data = true;
-            }
-
-            let data = {event_type: "Share From Site", share_success: bool_nav_data, name_entered: params.get('text'), time_in: getCookie("time_in"), isMobile: isMobileUser()};
-
-            fetch("https://request.rohittechzone.com/logger?webhook=https://discord.com/api/webhooks/925949513594712084/yLe4la31jVR5VCtnOQNh996mh6V1t5ohthl9vOUXoDjuEMLZ-r2Q_pZgH-fAXlfwxyyR", {
-            method: "POST",
-            body: JSON.stringify(data)
-            }).then(res => {
-                console.log(res);
-            });
-            if (navigator.share) {
-                if(params.get('text') == null){
-                    navigator.share({
-                    title: 'New Year Wishes',
-                    text: `Wishing you a happy new year! 🎇🎆`,
-                    url: `${window.location.origin.replace("http:", "https:")}${window.location.pathname}`
-                    })
-                    .then(() => console.log('Successful share'))
-                    .catch((error) => console.log('Error sharing', error));
-                }
-                else{
-                    navigator.share({
-                    title: 'New Year Wishes',
-                    text: `Wishing you a happy new year! 🎇🎆`,
-                    url: `${window.location.origin.replace("http:", "https:")}${window.location.pathname}?text=${params.get('text')}`
-                    })
-                    .then(() => console.log('Successful share'))
-                    .catch((error) => console.log('Error sharing', error));
-                }
-            } else {
-                if(params.get('text') == null){
-                    navigator.clipboard.writeText(`Wishing you a happy new year! 🎇🎆\n${window.location.origin.replace("http:", "https:")}${window.location.pathname}`);
-                }
-                else{
-                    navigator.clipboard.writeText(`Wishing you a happy new year! 🎇🎆\n${window.location.origin.replace("http:", "https:")}${window.location.pathname}?text=${params.get('text')}`);
-                }
-                alert("Share is not available in your browser! Instead copied it to your clipboard!");
-            }
-        }
-    </script>
+    <!-- <script async>
+        
+    </script> -->
+    <!-- <script src="/newyear/home.js"></script> -->
     <script src="/newyear/loader.js"></script>
-    <script src="/newyear/newyear.js"></script>
+    <script src="/newyear/animation.js"></script>
+    <!-- <script src="/newyear/newyear.js"></script> -->
 </body>
 </html>

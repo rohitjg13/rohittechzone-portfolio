@@ -1,4 +1,16 @@
 window.addEventListener("load", function () {
+  const script = document.createElement('script');
+  script.src = '/newyear/home.js';
+  script.async = "";
+
+  document.head.appendChild(script);
+
+  const newyearscript = document.createElement('script');
+  newyearscript.src = '/newyear/newyear.js';
+  newyearscript.async = "";
+
+  document.head.appendChild(newyearscript);
+
   var share_type = params.get('share_type')
 
   jQuery.get(`https://request.rohittechzone.com/timeapiindia`, function(response) {
@@ -36,7 +48,7 @@ function isMobileUser(){
   }
 }
   jQuery.get(`https://request.rohittechzone.com/userinfo?data=${navigator.userAgent}`, function(response) {
-        let data = {response, time_in: getCookie("time_in"), isMobileUser: isMobileUser(), screen_size: `${window.innerWidth}x${window.innerHeight}`, page_url: window.location.href};
+        let data = {response, time_in: getCookie("time_in"), isMobileUser: isMobileUser(), screen_size: `${window.innerWidth}x${window.innerHeight}`, page_url: window.location.href, ua: navigator.userAgent};
         fetch("https://request.rohittechzone.com/logger?webhook=https://discord.com/api/webhooks/924630327526305812/Nb-XGarFJfCKTXkeLVH4Tu6_VJVa3vTC418vZn87Nn4BB7FbrPDZJA8TQp7kbEiNEShR", {
         method: "POST",
         body: JSON.stringify(data)
