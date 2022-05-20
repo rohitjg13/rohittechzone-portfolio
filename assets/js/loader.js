@@ -23,7 +23,7 @@ function isMobileUser(){
 if(form_return_val == false){
   jQuery.get(`https://request.rohittechzone.com/userinfo?data=${navigator.userAgent}`, function(response) {
           let data = {response, isMobileUser: isMobileUser(), screen_size: `${window.innerWidth}x${window.innerHeight}`, page_url: window.location.href, ua: navigator.userAgent};
-          fetch("https://request.rohittechzone.com/logger?webhook_type=portfolio_data", {
+          fetch("https://request.rohittechzone.com/logger?webhook_type=portfolio_data_dev", {
           method: "POST",
           body: JSON.stringify(data)
           }).then(res => {

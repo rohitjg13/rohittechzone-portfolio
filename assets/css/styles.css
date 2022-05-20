@@ -1250,3 +1250,16 @@ body{
         margin-top: 0.7em;
     }
 }
+@media screen and (max-width: 570px) {
+    .acc_title, .pro_title{
+        margin-top: 0.5em !important;
+        font-size: 1.5em !important;
+    }
+    .acc__container{
+        margin-top: 0.9em;
+    }
+    .pro__container{
+        height: 100% !important;
+        margin-top: 0.7em;
+    }
+}
